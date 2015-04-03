@@ -1,0 +1,35 @@
+<template name="quiz">
+	<div class="row">
+		<div class="small-12 columns text-right">
+			Signed in as {{ user }}
+		</div>
+	</div>
+	<div class="row collapse">
+		<div class="small-12 columns">
+			{{ #each questions }}
+				<div class="panel radius question" data-question-id="{{ _id }}" style="margin-bottom:0px;">
+					{{body}}
+					{{#each choices}}
+						{{> choice }}
+					{{ /each }}
+				</div>
+			{{ /each }}
+		</div>
+	</div>
+	<!-- feelings content="I miss HAML" -->
+	<div class="row collapse">
+		<div class="small-12 columns">
+			<div class="panel controls">
+				<div class="row">
+					<div class="small-6 columns">
+						<button class="warning radius">Back</button>
+					</div>
+					<div class="small-6 text-right columns">
+						<button class="success radius">Next</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- /feelings -->
+</template>
