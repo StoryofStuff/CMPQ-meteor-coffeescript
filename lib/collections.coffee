@@ -13,3 +13,14 @@ if Meteor.isServer
 	Meteor.publish 'userData', ->
 	  Meteor.users.find {_id: @userId}, fields:
 	    'services.facebook.id': 1
+
+
+
+if Meteor.isClient
+
+	window.fbAsyncInit = ->
+		FB.init
+			appId: '1625984527621838'
+			status: true
+			xfbml: true
+		return

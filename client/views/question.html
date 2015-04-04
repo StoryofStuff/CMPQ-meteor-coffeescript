@@ -4,7 +4,8 @@
 			<div class="small-12 columns">
 				<div class="panel radius question" style="margin-bottom:0px;">
 					<input type="hidden" name="questionId" value="{{ _id }}"/>
-					{{ body }}
+					<h3>{{ body }}</h3>
+					<hr />
 					{{#each choices}}
 						{{> choice }}
 					{{ /each }}
