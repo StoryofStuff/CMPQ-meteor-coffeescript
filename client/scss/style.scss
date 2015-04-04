@@ -1,17 +1,20 @@
 /* CSS declarations go here */
+@import "settings";
+@import ".meteor/local/build/programs/server/assets/packages/matthew_foundation5-sass/foundation";
+
+body
+{
+	background-image: url('/background.jpg');
+	background-size: cover;
+}
+
 button, .button
 {
 	padding: 10px 20px;
 }
-.choice
+.panel
 {
-	background-color: #ccc;
-	color: #333;
-}
-.choice.chosen
-{
-	background-color: #777;
-	color: #fff;
+	background: rgba(240,240,240,.9);
 }
 .panel.question
 {
@@ -26,4 +29,8 @@ button, .button
 	border-top: 0px;
 	border-bottom-left-radius: 10px;
 	border-bottom-right-radius: 10px;
+}
+img.avatar
+{
+	border-radius: 50%;
 }

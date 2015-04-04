@@ -1,0 +1,31 @@
+<template name="question">
+	<form class="question-form">
+		<div class="row collapse">
+			<div class="small-12 columns">
+				<div class="panel radius question" style="margin-bottom:0px;">
+					<input type="hidden" name="questionId" value="{{ _id }}"/>
+					{{ body }}
+					{{#each choices}}
+						{{> choice }}
+					{{ /each }}
+				</div>
+			</div>
+		</div>
+		<!-- feelings content="I miss HAML" -->
+		<div class="row collapse">
+			<div class="small-12 columns">
+				<div class="panel controls">
+					<div class="row">
+						<div class="small-6 columns">
+							<button class="warning radius">Back</button>
+						</div>
+						<div class="small-6 text-right columns">
+							<button class="success radius">Next</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- /feelings -->
+	</form>
+</template>

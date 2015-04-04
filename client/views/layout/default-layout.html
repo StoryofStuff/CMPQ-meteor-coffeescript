@@ -3,6 +3,28 @@
 		<title>Changemaker Personality Quiz</title>
 	</head>
 	<body>
+	<nav class="top-bar">
+		<section class="top-bar-section">
+			<ul class="title-area">
+				<li class="logo">
+					<a href="/"><img src="/logo.png" style="height:70px;margin-top:5px;" /></a>
+				</li>
+			</ul>
+			<ul class="right">
+				<li>
+					<a>
+					    {{#if currentUser}}
+							Logged in as {{ currentUser.profile.name }}
+							<img class="avatar" src="http://graph.facebook.com/{{ currentUser.services.facebook.id }}/picture/"/>
+						{{else}}
+							{{> loginButtons}}
+						{{/if}}
+					</a>
+				</li>
+			</ul>
+		</section>
+	</nav>
 		{{> yield}}
+		{{initFoundation}}
 	</body>
 </template>
