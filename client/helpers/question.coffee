@@ -30,7 +30,32 @@ Template.question.events
 		if moreQuestions()
 			Router.go('question', {id: Number(Session.get('question')) + 1})
 		else
+			#storeResults
+			Results.insert
+				createdAt: Date.now()
+				userId: Meteor.user()._id
+				result: result()
 			Router.go('results')
+
+result = ->
+		if Answers.find({userId: Meteor.user()._id}).fetch().length?
+			recentAnswers = {}
+			questions = Questions.find().fetch()
+			for question in questions
+				recentAnswers[question._id] = Answers.find({questionId: question._id, userId: Meteor.user()._id}, {sort: {createdAt: -1}}).fetch()[0]
+			answerCounts = {}
+			for question, answer of recentAnswers
+				if answerCounts[answer.answer]?
+					answerCounts[answer.answer] = answerCounts[answer.answer] + 1
+				else
+					answerCounts[answer.answer] = 1
+			currentHighest = 0
+			currentResult = ''
+			for answer, count of answerCounts
+				if count > currentHighest
+					currentResult = answer
+			Session.set 'result', currentResult
+			return currentResult
 
 moreQuestions = -> 
 	nextQuestion = Questions.findOne({order: Number(Session.get('question')) + 1})

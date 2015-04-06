@@ -1,5 +1,6 @@
 @Questions = new Meteor.Collection "questions"
 @Answers = new Meteor.Collection "answers"
+@Results = new Meteor.Collection "results"
 if Meteor.isClient
 	Meteor.subscribe 'userData'
 if Meteor.isServer

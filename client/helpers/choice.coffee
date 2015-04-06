@@ -11,15 +11,14 @@ Template.choice.helpers
 		#then they have already stored an answer for this session
 		#and we should ignore the database entries
 		if Session.get(questionId)?
-			console.log "sentinel 1"
 			sessionChoiceId = Session.get(questionId)
-			console.log @
 			if sessionChoiceId is choiceId
 				return true
 		else
 			if Session.get 'showPrevious'
 				#there is no stored session answer, let's try and find one
 				#from the database
-				databaseAnswer = Answers.find({questionId: questionId}, {sort: {createdAt: -1}}).fetch()?[0]
-				if databaseAnswer.choiceId is choiceId
-					return true
+				databaseAnswer = Answers.find({questionId: questionId, userId: Meteor.user()._id}, {sort: {createdAt: -1}}).fetch()[0]
+				if databaseAnswer?
+					if databaseAnswer.choiceId is choiceId
+						return true

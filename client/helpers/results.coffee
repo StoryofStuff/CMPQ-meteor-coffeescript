@@ -22,7 +22,6 @@ Template.results.helpers
 			Session.set 'result', currentResult
 			return currentResult
 	resultBody: (result) ->
-		console.log result
 		switch result
 			when 'builder'
 				return """<p>Builders like you are aren't waiting for the solutions, they're out there creating them. Here are just a few ways you might be doing that:</p>
@@ -105,3 +104,18 @@ Template.results.helpers
 						<li>James Hansen</li>
 						<li>Peter Gleick</li>
 					</ul>"""
+			when 'nurturer'
+				return """<p>Nurturers like you make it possible to make change! Here&#8217;s how:</p>
+				<ul>
+					<li>Providing support, care and just about every other kind of sustenance to changemakers and change efforts.</li>
+					<li>Having (and keeping!) a source of strength so large that it can be shared with others when they need it.</li>
+					<li>Always being ready, able and willing to help.</li>
+				</ul>
+				<p> Some Notable Nurturers who have done awesome things to change the world:</p>
+				<ul><li>Dorothy Day</li>
+					<li>Janelle Orsi</li>
+					<li>Richard and Rhoda Goldman</li>
+					<li>Joanna Macy</li>
+					<li>Kim Klein</li>
+					<li>Yoga Gangsters</li>
+				</ul>"""

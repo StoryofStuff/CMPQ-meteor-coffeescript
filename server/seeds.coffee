@@ -140,3 +140,108 @@ if Questions.find().fetch().length < 2
 				label: '"I could design some flyers and create a Facebook group to help get the word out."'
 			}
 		]
+	Questions.insert
+		order: 5
+		body: "You are making an important group decision. It might be about family finances, a key work project, campaign strategy, or another critical issue. You are most likely to feel frustrated with the process when:"
+		choices: [
+			{
+				_id: (new (Meteor.Collection.ObjectID))._str
+				value: "communicator"
+				label: "You feel like people aren’t saying what they actually mean"
+			}
+			{
+				_id: (new (Meteor.Collection.ObjectID))._str
+				value: "networker"
+				label: "The broader community isn’t consulted and choices are made in a vacuum"
+			}
+			{
+				_id: (new (Meteor.Collection.ObjectID))._str
+				value: "resister"
+				label : "There isn’t an equal playing field"
+			}
+			{
+				_id: (new (Meteor.Collection.ObjectID))._str
+				value: "nurturer"
+				label: "People don’t approach the situation carefully and thoughtfully"
+			}
+			{
+				_id: (new (Meteor.Collection.ObjectID))._str
+				value: "investigator"
+				label: "Decisions are made without all the needed information"
+			}
+			{
+				_id: (new (Meteor.Collection.ObjectID))._str
+				value: "builder"
+				label : "People complain about something and don’t provide a path forward"
+			}
+		]
+	Questions.insert
+		order: 6
+		body: "Which of the following phrases would your friends and family mostly likely use to describe you?"
+		choices: [
+			{
+				_id: (new (Meteor.Collection.ObjectID))._str
+				value: "investigator"
+				label: "Deeply inquisitive and in constant pursuit of new and better information"
+			}
+			{
+				_id: (new (Meteor.Collection.ObjectID))._str
+				value: "communicator"
+				label: "Always knows just what to say, or how to express themselves"
+			}
+			{
+				_id: (new (Meteor.Collection.ObjectID))._str
+				value: "builder"
+				label : "A real problem-solver"
+			}
+			{
+				_id: (new (Meteor.Collection.ObjectID))._str
+				value: "resister"
+				label: "Guided by a strong moral compass"
+			}
+			{
+				_id: (new (Meteor.Collection.ObjectID))._str
+				value: "networker"
+				label: "A true collaborator with a rich group of friends and colleagues"
+			}
+			{
+				_id: (new (Meteor.Collection.ObjectID))._str
+				value: "nurturer"
+				label : "A real backbone of the family or community"
+			}
+		]
+	Questions.insert
+		order: 7
+		body: "Which of the following phrases would your friends and family mostly likely use to describe you?"
+		choices: [
+			{
+				_id: (new (Meteor.Collection.ObjectID))._str
+				value: "communicator"
+				label: "Spending a leisurely afternoon out at a museum or doing some writing"
+			}
+			{
+				_id: (new (Meteor.Collection.ObjectID))._str
+				value: "resister"
+				label: "Attending a local screening, lecture, community event"
+			}
+			{
+				_id: (new (Meteor.Collection.ObjectID))._str
+				value: "networker"
+				label : "Cooking a special dinner for your family and friends"
+			}
+			{
+				_id: (new (Meteor.Collection.ObjectID))._str
+				value: "nurturer"
+				label: "Cooking a special dinner for your family and friends"
+			}
+			{
+				_id: (new (Meteor.Collection.ObjectID))._str
+				value: "investigator"
+				label: "Poring over the Sunday paper and doing some much anticipated reading"
+			}
+			{
+				_id: (new (Meteor.Collection.ObjectID))._str
+				value: "builder"
+				label : "Tinkering around in your workshop or garden"
+			}
+		]

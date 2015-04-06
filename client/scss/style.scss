@@ -2,12 +2,6 @@
 @import "settings";
 @import ".meteor/local/build/programs/server/assets/packages/matthew_foundation5-sass/foundation";
 
-body
-{
-	background-image: url('/background.jpg');
-	background-size: cover;
-}
-
 button, .button
 {
 	padding: 10px 20px;
