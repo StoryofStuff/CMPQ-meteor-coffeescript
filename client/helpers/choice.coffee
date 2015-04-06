@@ -1,11 +1,25 @@
 Template.choice.helpers
-	chosen: (question_id) ->
-		if @._id is Session.get question_id
+	chosen: (questionId) ->
+		if currentAnswer(questionId, @._id)
 			"success"
-		# go get the session variable for the question. if it matches, 
-		# return a class, otherwise, return nothing
-	checked: (question_id) ->
-		if @._id is Session.get question_id
+	checked: (questionId) ->
+		if currentAnswer(questionId, @._id)
 			"checked"
-	#currentAnswer: ->
-	#	Answers.find({}, {limit: 1, sort: {'_id': -1}}).fetch()[0]
+
+	currentAnswer = (questionId, choiceId)=>
+		#if there is a session variable for this question
+		#then they have already stored an answer for this session
+		#and we should ignore the database entries
+		if Session.get(questionId)?
+			console.log "sentinel 1"
+			sessionChoiceId = Session.get(questionId)
+			console.log @
+			if sessionChoiceId is choiceId
+				return true
+		else
+			if Session.get 'showPrevious'
+				#there is no stored session answer, let's try and find one
+				#from the database
+				databaseAnswer = Answers.find({questionId: questionId}, {sort: {createdAt: -1}}).fetch()?[0]
+				if databaseAnswer.choiceId is choiceId
+					return true
